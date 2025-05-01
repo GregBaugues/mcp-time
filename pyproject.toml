@@ -3,6 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
+requires-python = ">=3.12"
 name = "mcp-remote"
 version = "0.1.0"
 dependencies = [

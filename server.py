@@ -3,44 +3,10 @@ import datetime
 import pytz
 import os
 
-
 mcp = FastMCP(
-    name="Date and Time",
-    instructions="This server provides the current date and time in a given timezone. Call current_time(), current_date(), or current_datetime() and pass along an optional timezone parameter (defaults to NYC)."
+    name="Current Date and Time",
+    instructions="This server provides the current date and time in a given timezone. Call current_datetime() and pass along an optional timezone parameter (defaults to NYC)."
 )
-
-@mcp.tool()
-def current_time(timezone: str = "America/New_York") -> str:
-    """
-    Returns the current time as a string.
-    
-    Args:
-        timezone: Timezone name (e.g., 'UTC', 'US/Pacific', 'Europe/London').
-                 Defaults to 'America/New_York'.
-    """
-    try:
-        tz = pytz.timezone(timezone)
-        now = datetime.datetime.now(tz)
-        return now.strftime("%H:%M:%S")
-    except pytz.exceptions.UnknownTimeZoneError:
-        return f"Error: Unknown timezone '{timezone}'. Please use a valid timezone name."
-
-
-@mcp.tool()
-def current_date(timezone: str = "America/New_York") -> str:
-    """
-    Returns the current date as a string.
-    
-    Args:
-        timezone: Timezone name (e.g., 'UTC', 'US/Pacific', 'Europe/London').
-                 Defaults to 'America/New_York'.
-    """
-    try:
-        tz = pytz.timezone(timezone)
-        now = datetime.datetime.now(tz)
-        return now.strftime("%Y-%m-%d")
-    except pytz.exceptions.UnknownTimeZoneError:
-        return f"Error: Unknown timezone '{timezone}'. Please use a valid timezone name."
 
 
 @mcp.tool()
@@ -74,3 +40,4 @@ if __name__ == "__main__":
             log_level="debug"
         )
     )
+
