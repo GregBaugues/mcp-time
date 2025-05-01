@@ -5,7 +5,7 @@ import os
 
 mcp = FastMCP(
     name="Current Date and Time",
-    instructions="This server provides the current date and time in a given timezone. Call current_datetime() and pass along an optional timezone parameter (defaults to NYC)."
+    instructions="When you are asked for the current date or time, call current_datetime() and pass along an optional timezone parameter (defaults to NYC)."
 )
 
 
