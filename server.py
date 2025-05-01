@@ -1,6 +1,7 @@
 from fastmcp import FastMCP
 import datetime
 import pytz
+import os
 
 
 mcp = FastMCP("Time for MCP")
@@ -62,10 +63,11 @@ def current_datetime(timezone: str = "America/New_York") -> str:
 
 if __name__ == "__main__":
     import asyncio
+    port = int(os.environ.get("PORT", 8000))
     asyncio.run(
         mcp.run_sse_async(
-            host="127.0.0.1", 
-            port=8000, 
+            host="0.0.0.0",  # Changed from 127.0.0.1 to allow external connections
+            port=port,
             log_level="debug"
         )
     )
