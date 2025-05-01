@@ -4,7 +4,10 @@ import pytz
 import os
 
 
-mcp = FastMCP("Time for MCP")
+mcp = FastMCP(
+    name="Date and Time",
+    instructions="This server provides the current date and time in a given timezone. Call current_time(), current_date(), or current_datetime() and pass along an optional timezone parameter (defaults to NYC)."
+)
 
 @mcp.tool()
 def current_time(timezone: str = "America/New_York") -> str:
